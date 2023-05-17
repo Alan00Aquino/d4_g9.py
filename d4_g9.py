@@ -35,14 +35,16 @@ while True:
                 print('Lista de Inmuebles')
                 for i in lista_inmuebles:
                         print(f'-{i}')
-                input('')
+                input('presione enter para volver al menú principal')
                 system('cls')       
         
         elif opcion == 2:
                 system('cls')
                 print('lista de inmuebles')
-                print(enumerate(list(lista_inmuebles)))
+                
+                for y in lista_inmuebles:
+                        print(y)
 
 '''Agregen su nombre'''
 #Integrantes:
-#Aquino Alan Mauricio Sebastian 
+#Aquino Alan Mauricio Sebastian
