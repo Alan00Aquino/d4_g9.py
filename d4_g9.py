@@ -10,6 +10,26 @@ lista_inmuebles = [{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': Tr
                    {'año': 2015, 'metros': 95, 'habitaciones': 3, 'garaje': True, 'zona': 'B', 'estado': 'Vendido'},
                    {'año': 2008, 'metros': 60, 'habitaciones': 2, 'garaje': False, 'zona': 'C', 'estado': 'Disponible'}]
 
+def validar_inmueble(inmueble):
+    if (
+        inmueble['zona'] in ['A', 'B', 'C'] and
+        inmueble['estado'] in ['Disponible', 'Reservado', 'Vendido'] and
+        inmueble['año'] >= 2000 and
+        inmueble['metros'] >= 60 and
+        inmueble['habitaciones'] >= 2
+    ):
+        return True
+    else:
+        False
+
+def agregar_inmueble(inmuebles, nuevo_inmueble):
+    if validar_inmueble(nuevo_inmueble):
+        inmuebles.append(nuevo_inmueble)
+        print("El inmueble ha sido agregado correctamente.")
+    else:
+        print("El inmueble no cumple con las reglas de validación.")
+    
+
 def editar_inmueble(inmueble_edit, inmueble):
         print(inmueble_edit)
         inmueble_edit['año'] = input('año: ')
