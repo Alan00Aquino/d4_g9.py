@@ -1,4 +1,5 @@
 from os import system
+import time
 system ('cls')
 
 
@@ -9,42 +10,63 @@ lista_inmuebles = [{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': Tr
                    {'año': 2015, 'metros': 95, 'habitaciones': 3, 'garaje': True, 'zona': 'B', 'estado': 'Vendido'},
                    {'año': 2008, 'metros': 60, 'habitaciones': 2, 'garaje': False, 'zona': 'C', 'estado': 'Disponible'}]
 
+def editar_inmueble(inmueble_edit, inmueble):
+        print(inmueble_edit)
+        inmueble_edit['año'] = input('año: ')
+        inmueble_edit['metros'] = input('metros: ')
+        inmueble_edit['habitaciones'] = input('habitaciones: ')
+        inmueble_edit['garaje'] = input('garaje: ')
+        inmueble_edit['zona'] = input('zona: ')
+        inmueble_edit['estado'] = input('estado: ')
+        print(inmueble_edit)
+        input('Presione intro para guardar los cambios')
+        lista_inmuebles[inmueble - 1] = inmueble_edit
+        system('cls')
+        print('\"Los cambios fueron guardados exitosamente\"')
+        time.sleep(4)
+        system('cls')
 
-'''Agregar, editar y eliminar inmuebles a la lista.
-Las funciones deben ajustarse al formato de lista y reglas de validación'''
-def editar_inmuble(inmueble):
-        inmueble_editado = lista_inmuebles[inmueble]
-        disponible_editado = input('Disponible: ')
-        disponible_editado['Disponible'] = disponible_editado
 
+def menú():
+        while True:
+                print('Bienvenido a la gestion de inmuebles')
+                print('1. Lista de Inmuebles')
+                print('2. Editar un Inmueble')
+                print('3. Agregar un Inmueble')
 
-
-
-
-
-while True:
-        '''Menú'''
-        print('Bienvenido a la gestion de inmuebles')
-        print('1. Lista de Inmuebles')
-        print('2. Editar un Inmueble')
-        print('3. Agregar un Inmueble')
-
-        opcion = int(input('Ingrese una opcion: '))
-        if opcion == 1:
-                system('cls')
-                print('Lista de Inmuebles')
-                for i in lista_inmuebles:
-                        print(f'-{i}')
-                input('presione enter para volver al menú principal')
-                system('cls')       
+                opcion = int(input('Ingrese una opcion: '))
+                if opcion == 1:
+                        system('cls')
+                        print('Lista de Inmuebles')
+                        for inc, inm in enumerate(lista_inmuebles):
+                                inc += 1
+                                print (f'{inc}. {inm}')
+                        input('presione enter para volver al menú principal')
+                        system('cls')       
         
-        elif opcion == 2:
-                system('cls')
-                print('lista de inmuebles')
+                elif opcion == 2:
+                        system('cls')
+                        print('lista de inmuebles')
+                        inc = 1
+                        for inc, inm in enumerate(lista_inmuebles):
+                                inc += 1
+                                print (f'{inc}. {inm}')
+                        inmueble = int(input('Ingrese la opcion del inmueble a editar: '))
                 
-                for y in lista_inmuebles:
-                        print(y)
+                        if inmueble < 1 or inmueble > len(lista_inmuebles):
+                                system('cls')
+                                print('\"La opcion ingresada es invalida\"')
+                                time.sleep(4)
+                                system('cls')
+                        else:
+                                inmueble_edit = lista_inmuebles[inmueble - 1]
+                                system('cls')
+                                editar_inmueble(inmueble_edit, inmueble)
 
-'''Agregen su nombre'''
+
+menú()
+
+
+#Agregen su nombre'''
 #Integrantes:
 #Aquino Alan Mauricio Sebastian
