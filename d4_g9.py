@@ -34,6 +34,20 @@ def agregar_inmueble(lista_inmuebles, nuevo_inmueble):
         time.sleep(4)
         system('cls')
 
+def eliminar_inmueble( lista_inmuebles, inmueble):
+    lista_inmuebles.pop(inmueble-1)
+    system('cls')
+    print('Lista de inmuebles')
+    inc = 1
+    for inc, inm in enumerate(lista_inmuebles):
+        inc += 1
+        print(f'{inc}. {inm}')
+    
+    print("El inmueble ha sido eliminado con exito")
+    time.sleep(4)
+
+
+
 def editar_inmueble(inmueble_edit, inmueble):
     print('Estado actual')
     print(inmueble_edit)
@@ -44,7 +58,7 @@ def editar_inmueble(inmueble_edit, inmueble):
     inmueble_edit['zona'] = input('Zona (A/B/C): ').upper()
     inmueble_edit['estado'] = input('Estado (Disponible/Reservado/Vendido): ').capitalize()
     system('cls')
-    print('Cambio realizado')
+    print('Cambios realizados')
     print(inmueble_edit)
     input('Presione intro para guardar los cambios')
     lista_inmuebles[inmueble - 1] = inmueble_edit
@@ -177,6 +191,24 @@ def menú():
             nuevo_inmueble['zona'] = input('Zona (A/B/C): ').upper()
             nuevo_inmueble['estado'] = input('Estado (Disponible/Reservado/Vendido): ').capitalize()
             agregar_inmueble(lista_inmuebles, nuevo_inmueble)
+
+        elif opcion == 4:
+            system('cls')
+            
+            print('Lista de inmuebles')
+            inc = 1
+            for inc, inm in enumerate(lista_inmuebles):
+                inc += 1
+                print(f'{inc}. {inm}')
+            inmueble = int(input('Ingrese la opción del inmueble a eliminar : '))
+            
+            if inmueble < 1 or inmueble > len(lista_inmuebles):
+                system('cls')
+                print('\"La opción ingresada no se encuentra en la lista\"')
+                time.sleep(4)
+                system('cls')
+            else: 
+                eliminar_inmueble(lista_inmuebles, inmueble)
         
         elif opcion == 5:
             system('cls')
@@ -210,4 +242,5 @@ menú()
 #Integrantes:
 #Aquino Alan Mauricio Sebastian
 #Leonel Risso Patrón
-#Ludueño Zahir Ivan
+#Innocente Iván
+#Juan Pablo Katona
