@@ -239,8 +239,8 @@ def menú():
 
 menú()
 
-#Integrantes:
-#Aquino Alan Mauricio Sebastian
-#Leonel Risso Patrón
-#Innocente Iván
-#Juan Pablo Katona
+# Integrantes:
+# Aquino Alan Mauricio Sebastian
+# Leonel Risso Patrón
+# Innocente Iván
+# Juan Pablo Katona
